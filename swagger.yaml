@@ -1,0 +1,75 @@
+openapi: 3.0.0
+info:
+  title: Doc mining API
+  version: 1.0.0
+paths:
+  /api/document/upload:
+    description: Upload a document
+    post:
+      summary: Upload a document
+      operationId: api.document.upload
+      responses:
+        '200':
+          description: Document uploaded
+        '500':
+          description: Internal server error
+  /api/conversation/ask:
+    description: Ask a question about a document
+    post:
+      summary: Ask a question about a document
+      operationId: api.conversation.ask
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AskQuestionRequest'
+      responses:
+        '200':
+          description: Question asked
+        '500':
+          description: Internal server error
+  /api/profile/create:
+    description: Create a profile
+    post:
+      summary: Create a profile
+      operationId: api.profile.create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateProfileRequest'
+      responses:
+        '200':
+          description: Profile created
+        '500':
+          description: Internal server error
+
+components:
+  schemas:
+    AskQuestionRequest:
+      type: "object"
+      required:
+        - question_text
+        - conversation_key
+      properties:
+        conversation_key:
+          type: string
+        question_text:
+          type: string
+        conversation_id:
+          type: string
+    CreateProfileRequest:
+      type: "object"
+      required:
+        - name
+        - description
+        - hash_names
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        hash_names:
+          type: array
+          items:
+            type: string

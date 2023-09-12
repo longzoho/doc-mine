@@ -1,0 +1,29 @@
+connexion
+python-dotenv
+bson
+flask
+google-cloud-pubsub
+werkzeug
+prefect
+firebase-admin
+
+# Large language model
+llama-cpp-python==0.1.82
+langchain==0.0.264
+torch
+chromadb
+sentence_transformers
+InstructorEmbedding
+ctransformers
+
+# Message queue
+pika
+
+# Document loader
+pdfminer.six==20221105
+
+# GGUF
+gguf
+
+# OpenAI
+openai
